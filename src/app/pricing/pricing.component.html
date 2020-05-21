@@ -1,0 +1,29 @@
+<div class="col pricing">
+    <div class="card mb-5 mb-lg-0">
+        <div class="card-body">
+            <h5 class="card-title text-muted text-uppercase text-center">{{data.name}}</h5>
+            <h6 class="card-price text-center">${{data.price}}<span class="period">/month</span></h6>
+            <hr>
+            <ul class="fa-ul">
+                <li><span class="fa-li"><i class="fas fa-check"></i></span><span *ngIf="data.users == 'Single User'; else boldUsers">{{data.users}}</span><ng-template #boldUsers><b>{{data.users}}</b></ng-template> </li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>{{data.storage}}GB Storage</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>Unlimited Public Projects</li>
+                <li><span class="fa-li"><i class="fas fa-check"></i></span>Community Access</li>
+                <li [ngClass]="{'text-muted':data.unlimitedProjects == false}"><span class="fa-li"><i
+                            [ngClass]="data.unlimitedProjects ? 'fas fa-check' : 'fas fa-times'"></i></span>
+                    Unlimited Private Projects</li>
+                <li [ngClass]="{'text-muted':data.dedicatedSupport == false}"><span class="fa-li"><i
+                            [ngClass]="data.dedicatedSupport ? 'fas fa-check' : 'fas fa-times'"></i></span>Dedicated
+                    Phone Support</li>
+                <li [ngClass]="{'text-muted' : data.freeDomain == false}"><span class="fa-li"><i
+                            [ngClass]="data.freeDomain ? 'fas fa-check' : 'fas fa-times'"></i></span><span *ngIf="data.unlimitedDomains == false; else noLimit">Free Subdomain</span><ng-template #noLimit><b>Unlimited</b> Free Subdomains</ng-template>
+                </li>
+                <li [ngClass]="{'text-muted' : data.monthlyreports == false}"><span class="fa-li"><i
+                            [ngClass]="data.monthlyreports ? 'fas fa-check' : 'fas fa-times'"></i></span>Monthly
+                    Status
+                    Reports</li>
+            </ul>
+            <a href="#" class="btn btn-block btn-primary text-uppercase">Button</a>
+        </div>
+    </div>
+</div>
